@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+::-webkit-scrollbar {
+  width: 4px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 2px #c4cad4;
+  background: #c4cad4;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgb(255, 233, 249);
+  border-radius: 8px;
+}
+
+.modal-overlay::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+}
+.modal-overlay::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 2px #c4cad4;
+  background: #c4cad4;
+  border-radius: 8px;
+}
+.modal-overlay::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgb(255, 233, 249);
+  border-radius: 8px;
+}
+
+.center-panel::-webkit-scrollbar {
+  width: 4px;
+  height: auto;
+}
+.center-panel::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 2px #c4cad4;
+  background: #c4cad4;
+  border-radius: 4px;
+}
+.center-panel ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgb(255, 233, 249);
+  border-radius: 4px;
+}
+
+/* global.css or App.css */
+:root {
+  --font-weight-normal: 400; /* Set default weight */
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: var(--font-weight-normal); /* Default weight */
+  margin: 0; /* Optional: reset margin */
+  padding: 0; /* Optional: reset padding */
+}
+
+.space-grotesk-bold {
+  font-weight: 700;
+}
+
+.space-grotesk-light {
+  font-weight: 300;
+}
