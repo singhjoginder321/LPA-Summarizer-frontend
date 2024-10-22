@@ -6,6 +6,8 @@ import {
   FaFilePdf,
 } from "react-icons/fa";
 
+import { BsFillPatchCheckFill } from "react-icons/bs";
+
 function ConfirmationPage({ data, onGoBack }) {
   const { email, pdf, rules } = data || {};
 
@@ -13,7 +15,7 @@ function ConfirmationPage({ data, onGoBack }) {
     <div className="flex items-center justify-center py-8">
       <div className="bg-white p-6 rounded-lg shadow-xl max-w-xl transition-transform transform">
         <h2 className="text-3xl font-extrabold text-center mb-4 text-gray-800">
-          <FaCheckCircle className="inline-block text-green-600 mr-2" />
+          <BsFillPatchCheckFill className="inline-block text-green-600 mr-2" />
           Confirmation
         </h2>
         <p className="confirmation-message text-lg mb-4 text-center text-gray-700 font-light leading-relaxed">

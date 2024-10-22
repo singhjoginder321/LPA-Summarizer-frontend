@@ -19,6 +19,8 @@ module.exports = {
       backgroundImage: {
         "gradient-45": "linear-gradient(45deg, #8c48ff, #ff5f3d)",
         "gradient-hover": "linear-gradient(45deg, #7a3ede, #e65232)",
+        "gradient-tooltip":
+          "linear-gradient(90deg, rgba(121,29,91,1) 43%, rgba(20,32,140,1) 100%, rgba(28,19,178,1) 100%)",
         "custom-gradient":
           "linear-gradient(135deg, rgba(140, 72, 255, 0.2), rgba(22, 100, 223, 0.2))",
         "custom-gradient-light":
