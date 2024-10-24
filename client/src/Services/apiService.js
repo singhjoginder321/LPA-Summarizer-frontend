@@ -1,9 +1,12 @@
 import axios from "axios";
 
+const API_URL =
+  process.env?.["REACT_APP_ENV"] === "production"
+    ? "https://ai-workbench.flipnow.cloud/dev/legal-document-processing/api/"
+    : "https://ai-workbench.flipnow.cloud/dev/legal-document-processing/api/";
+
 const apiClient = axios.create({
-  // baseURL: "http://localhost:8000/api",
-  baseURL:
-    "https://ai-workbench.flipnow.cloud/dev/legal-document-processing/api/getSummary",
+  baseURL: API_URL,
 });
 
 // Request Interceptor

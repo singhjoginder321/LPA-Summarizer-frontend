@@ -19,10 +19,6 @@ function ConfirmationPage({ data, onGoBack }) {
           Confirmation
         </h2>
         <p className="confirmation-message text-lg mb-4 text-center text-gray-700 font-light leading-relaxed">
-          <span className="font-semibold text-gray-800">
-            Thank you for your submission!
-          </span>
-          <br />
           <span className="block mt-2 text-gray-600">
             We are currently processing your request, and you can expect the
             result to be sent to the email you provided shortly.

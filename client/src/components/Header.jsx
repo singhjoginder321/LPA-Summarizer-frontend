@@ -1,9 +1,23 @@
 import React, { useState } from "react";
+import { BiChevronDown } from "react-icons/bi";
 import { FaInfoCircle } from "react-icons/fa";
-import logo from "../assets/logo-kanerika.png";
+import logo from "../assets/kanerika-logo.svg";
 
-function Header() {
+function Header({ setModel }) {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedModel, setSelectedModel] = useState("GPT-4o");
+
+  const handleDropdownToggle = () => {
+    setShowDropdown((prev) => !prev);
+  };
+
+  const handleModelSelect = (model) => {
+    setSelectedModel(model);
+    setModel(model);
+    console.log("Model selected", model);
+    setShowDropdown(false);
+  };
 
   return (
     <nav className="flex items-center justify-between py-2 bg-white border-b border-gray-300 shadow-lg relative">
@@ -13,37 +27,54 @@ function Header() {
       </div>
 
       {/* Center: Title */}
-      <h2 className="max-md:hidden text-3xl text-custom-blue font-bold flex-grow text-center ml-[-8rem]">
-        LPA Summarizer
-      </h2>
+      <div className="flex items-center flex-grow justify-center">
+        <p className="text-2xl text-custom-blue font-bold">
+          Legal Document Summarizer
+        </p>
 
-      {/* Right: Instruction Icon with Tooltip */}
-      <div className="flex items-center mr-2 relative">
-        <button
-          className="flex items-center p-2 rounded "
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
-        >
-          <FaInfoCircle className="h-7 w-7 text-custom-blue hover:text-white hover:rounded-full hover:bg-gradient-45 transition duration-200" />
-        </button>
+        {/* Instruction Icon with Tooltip */}
+        <div className="relative ml-4">
+          <button
+            className="flex items-center p-2 rounded  transition duration-200"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+          >
+            <FaInfoCircle className="h-7 w-7 text-custom-blue hover:text-custom-orange" />
+          </button>
 
-        {showTooltip && (
-          <div className=" absolute top-full right-0 mt-2 w-72 bg-gradient-tooltip text-white border border-blue-700 p-4 rounded-lg shadow-lg z-10 transition-opacity duration-300 ease-in-out opacity-100 transform translate-y-2">
-            <div className="relative">
-              <div className="absolute -top-2 right-4 w-0 h-0 border-x-4 border-x-transparent border-b-4 border-b-gradient-to-r from-blue-600 to-purple-600"></div>
-              <div className="flex items-center mb-2">
-                <FaInfoCircle className="mr-2 text-white" />{" "}
-                {/* Tooltip Icon */}
-                <span className="font-semibold text-lg">Instructions</span>
+          {showTooltip && (
+            <div className="absolute top-full left-0 mt-2 w-72 bg-custom-blue text-white border border-blue-700 p-4 rounded-lg shadow-lg z-10 transition-opacity duration-300 ease-in-out opacity-100 transform translate-y-2">
+              {/* Tooltip Content */}
+              <div className="relative">
+                {/* <div className="flex items-center mb-2">
+                  <FaInfoCircle className="mr-2 text-white" />
+                  <span className="font-semibold text-lg">Instructions</span>
+                </div> */}
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Prompt Engineering</li>
+                  <li>Map-Reduce Model</li>
+                  <li>Large Document Summarization</li>
+                </ul>
               </div>
-              <ul className="list-disc pl-5 space-y-1">
-                <li>Prompt Engineering</li>
-                <li>Map-Reduce Model</li>
-                <li>Large Document Summarization</li>
-              </ul>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+      </div>
+
+      {/* Right: Dropdown for Model Selection */}
+      <div className="relative mr-3">
+        <select
+          className="w-48 flex items-center text-custom-blue font-bold border-custom-blue p-2 pr-1 border rounded-md bg-white shadow-md hover:bg-gray-100 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500"
+          value={selectedModel}
+          onChange={(e) => handleModelSelect(e.target.value)}
+        >
+          <option value="GPT-4o" className="font-bold">
+            GPT-4o
+          </option>
+          <option value="Claude 3.5" className="font-bold">
+            Claude 3.5
+          </option>
+        </select>
       </div>
     </nav>
   );
